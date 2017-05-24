@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -27,26 +28,15 @@ android {
             storePassword 'mutiny123'
         }
     }
-    packagingOptions {
-        exclude 'META-INF/services/javax.annotation.processing.Processor'
-        exclude 'META-INF/ASL2.0'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/rxjava.properties'
-    }
-
-    dexOptions {
-        javaMaxHeapSize "4g"
-    }
     buildTypes {
+        def API_KEY = '"api_key"'
         debug {
             debuggable true
             minifyEnabled false
             applicationIdSuffix '.development'
             // TODO: Add signing config for debug
             // signingConfig signingConfigs.release
-
-            buildConfigField('STRING', 'API_KEY', '"')
+            buildConfigField "String", "API_KEY", API_KEY
         }
 
         release {
@@ -54,15 +44,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             // TODO: Add signing config for release
             //signingConfig signingConfigs.release
-
-            buildConfigField('STRING', 'API_KEY', '"key"')
+            buildConfigField "String", "API_KEY", API_KEY
         }
+    }
+    kapt {
+        generateStubs = true
     }
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile "junit:junit:$rootProject.junitVersion"
+    testCompile "org.mockito:mockito-core:$rootProject.mockitoVersion"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    testCompile "junit:junit:$rootProject.junit"
-    compile "com.android.support.constraint:constraint-layout:$rootProject.constraintLayout"
+    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+    compile "com.google.dagger:dagger:$rootProject.daggerVersion"
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+    compile "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlinVersion"
+    compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroidVersion"
+    compile "com.github.kittinunf.fuel:fuel-android:$rootProject.fuelVersion"
+    compile "com.github.kittinunf.fuel:fuel-rxjava:$rootProject.fuelVersion"
+    compile "com.pawegio.kandroid:kandroid:$rootProject.kandroidVersion@aar"
 }

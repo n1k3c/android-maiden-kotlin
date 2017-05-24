@@ -34,11 +34,18 @@ ext {
     // sdk and tools
     compileSdkVersion = 25
     buildToolsVersion = '25.0.3'
-    minSdkVersion = 15
+    minSdkVersion = 16
     targetSdkVersion = 25
 
     // dependencies versions
     supportLibraryVersion = '25.3.1'
-    constraintLayout = '1.0.2'
-    junit = '4.12'
+    constraintLayoutVersion = '1.0.2'
+    junitVersion = '4.12'
+    daggerVersion = '2.11-rc2'
+    rxKotlinVersion = '2.0.3'
+    rxAndroidVersion = '2.0.1'
+    rxAdapterVersion = '1.0.0'
+    fuelVersion = '1.7.0'
+    mockitoVersion = '2.8.9'
+    kandroidVersion = '0.8.2'
 }
