@@ -1,17 +1,13 @@
 package mutiny.codes.maidenkotlin
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.util.Log.d
-import com.pawegio.kandroid.d
-import com.pawegio.kandroid.toast
+import mutiny.codes.maidenkotlin.activities.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
     }
 }

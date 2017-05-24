@@ -46,7 +46,7 @@ ext {
     rxAndroidVersion = '2.0.1'
     rxAdapterVersion = '1.0.0'
     fuelVersion = '1.7.0'
-    mockitoVersion = '2.8.9'
+    mockitoVersion = '1.4.0'
     kandroidVersion = '0.8.2'
     kotprefVersion = '2.1.1'
 }
