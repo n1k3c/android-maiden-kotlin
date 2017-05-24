@@ -48,4 +48,5 @@ ext {
     fuelVersion = '1.7.0'
     mockitoVersion = '2.8.9'
     kandroidVersion = '0.8.2'
+    kotprefVersion = '2.1.1'
 }

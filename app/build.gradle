@@ -67,4 +67,6 @@ dependencies {
     compile "com.github.kittinunf.fuel:fuel-android:$rootProject.fuelVersion"
     compile "com.github.kittinunf.fuel:fuel-rxjava:$rootProject.fuelVersion"
     compile "com.pawegio.kandroid:kandroid:$rootProject.kandroidVersion@aar"
+    compile "com.chibatching.kotpref:kotpref:$rootProject.kotprefVersion"
+    compile "com.chibatching.kotpref:enum-support:$rootProject.kotprefVersion"
 }
