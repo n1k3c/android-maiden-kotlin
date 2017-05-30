@@ -9,6 +9,7 @@ import android.support.annotation.IdRes
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import android.support.v4.app.NavUtils
+import android.support.v7.app.ActionBar
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
@@ -53,21 +54,21 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         if (progressDialog == null) {
             progressDialog = ProgressDialog.show(this, getString(R.string.app_name), null, true, false)
         } else if (!progressDialog!!.isShowing) {
-            progressDialog!!.show()
+            (progressDialog as ProgressDialog).show()
         }
     }
 
     override fun showProgress(@StringRes description: Int) {
         if (progressDialog == null) {
             progressDialog = ProgressDialog.show(this, getString(R.string.app_name), getString(description), true, false)
-        } else if (!progressDialog!!.isShowing) {
-            progressDialog!!.show()
+        } else if (!(progressDialog as ProgressDialog).isShowing) {
+            (progressDialog as ProgressDialog).show()
         }
     }
 
     override fun hideProgress() {
         if (progressDialog != null) {
-            progressDialog!!.dismiss()
+            (progressDialog as ProgressDialog).dismiss()
         }
     }
 
@@ -162,15 +163,15 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
     private fun setActionBarTitle(@StringRes stringRes: Int) {
         if (supportActionBar != null) {
-            supportActionBar!!.setDisplayShowTitleEnabled(true)
-            supportActionBar!!.setTitle(stringRes)
+            (supportActionBar as ActionBar).setDisplayShowTitleEnabled(true)
+            supportActionBar?.setTitle(stringRes)
         }
     }
 
     protected fun setupActionBarBack() {
         if (supportActionBar != null) {
-            supportActionBar!!.setHomeButtonEnabled(true)
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            (supportActionBar as ActionBar).setHomeButtonEnabled(true)
+            (supportActionBar as ActionBar).setDisplayHomeAsUpEnabled(true)
         }
     }
 
