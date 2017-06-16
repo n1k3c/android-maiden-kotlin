@@ -10,9 +10,13 @@ import javax.inject.Inject
 
 class HelloInteractor @Inject constructor() : Interactor.HelloInteractor {
 
-    override fun helloInteractor(): Completable {
+    override fun getHello(): Completable {
         return Completable.create { subscriber ->
-            subscriber.onComplete()
+            try {
+                subscriber.onComplete()
+            } catch (e: Throwable) {
+                subscriber.onError(e)
+            }
         }
     }
 }

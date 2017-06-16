@@ -9,6 +9,6 @@ interface Interactor {
 
     interface HelloInteractor {
 
-        fun helloInteractor(): Completable
+        fun getHello(): Completable
     }
 }

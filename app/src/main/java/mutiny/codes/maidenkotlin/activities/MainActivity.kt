@@ -1,14 +1,12 @@
 package mutiny.codes.maidenkotlin.activities
 
 import android.os.Bundle
-import android.widget.TextView
-import com.pawegio.kandroid.find
+import kotlinx.android.synthetic.main.activity_main.*
 import mutiny.codes.maidenkotlin.R
 import mutiny.codes.maidenkotlin.dagger.components.AppComponent
 import mutiny.codes.maidenkotlin.dagger.modules.MainModule
 import mutiny.codes.maidenkotlin.mvp.Main
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), Main.View {
 
