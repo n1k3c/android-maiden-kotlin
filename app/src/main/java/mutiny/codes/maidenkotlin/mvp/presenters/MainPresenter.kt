@@ -21,14 +21,14 @@ class MainPresenter @Inject constructor(val view: Main.View, val helloInteractor
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeOn(Schedulers.io())
                         .subscribeWith(object : DisposableCompletableObserver() {
-                            override fun onComplete() {
-                                // Log.d("presenter", "onSuccess")
-                                view.sayHello("HelloWorld!")
+                            override fun onError(e: Throwable) {
+                                view.sayHello("Error")
+                                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                             }
 
-                            override fun onError(e: Throwable?) {
-                                // d("onError -> ${e.toString()}")
-                                view.sayHello("Error")
+                            override fun onComplete() {
+                                // Log.d("presenter", "onSuccess")
+                                view.sayHello("Hello World!")
                             }
                         })
         )

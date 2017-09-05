@@ -28,6 +28,9 @@ android {
             storePassword 'mutiny123'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
     buildTypes {
         def API_KEY = '"api_key"'
         debug {
@@ -65,9 +68,15 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28'
     compile "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlinVersion"
     compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroidVersion"
-    compile "com.github.kittinunf.fuel:fuel-android:$rootProject.fuelVersion"
-    compile "com.github.kittinunf.fuel:fuel-rxjava:$rootProject.fuelVersion"
     compile "com.pawegio.kandroid:kandroid:$rootProject.kandroidVersion@aar"
     compile "com.chibatching.kotpref:kotpref:$rootProject.kotprefVersion"
     compile "com.chibatching.kotpref:enum-support:$rootProject.kotprefVersion"
+    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofitVersion"
+    compile "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.rxAdapterVersion"
+    compile "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
+    compile "com.squareup.okhttp3:okhttp-urlconnection:$rootProject.okhttpVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+    compile "com.squareup.okhttp3:okhttp-ws:$rootProject.okhttpVersion"
 }
