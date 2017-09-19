@@ -38,7 +38,7 @@ class MainPresenterTest : BasePresenterTest() {
 
         presenter.saySomething()
 
-        verify(view).sayHello("HelloWorld!")
+        verify(view).sayHello("Hello World!")
     }
 
     @Test
