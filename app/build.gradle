@@ -53,6 +53,7 @@ android {
     kapt {
         generateStubs = true
     }
+    buildToolsVersion '26.0.2'
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
