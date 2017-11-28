@@ -12,9 +12,7 @@ import mutiny.codes.maidenkotlin.TheApplication
 class AppContextModule {
 
     @Provides
-    fun provideAppContext(): TheApplication? {
-        return TheApplication.instance
-    }
+    fun provideAppContext(): TheApplication? = TheApplication.instance
 
 }
 

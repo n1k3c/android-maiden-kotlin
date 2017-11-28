@@ -27,8 +27,8 @@ abstract class BaseFragment : Fragment(), BaseView {
         injectDependencies(appComponent = TheApplication.appComponent)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(contentViewResource, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(contentViewResource, container, false)
 
         return view
     }

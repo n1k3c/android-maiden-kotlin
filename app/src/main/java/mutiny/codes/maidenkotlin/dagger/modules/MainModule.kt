@@ -16,17 +16,11 @@ import mutiny.codes.maidenkotlin.mvp.presenters.MainPresenter
 class MainModule(var view: Main.View) {
 
     @Provides
-    fun provideMainView(): Main.View {
-        return view
-    }
+    fun provideMainView(): Main.View = view
 
     @Provides
-    fun provideMainPresenter(mainPresenter: MainPresenter): Main.Presenter {
-        return mainPresenter
-    }
+    fun provideMainPresenter(mainPresenter: MainPresenter): Main.Presenter = mainPresenter
 
     @Provides
-    fun provideHelloInteractor(helloInteractor: HelloInteractor): Interactor.HelloInteractor {
-        return helloInteractor
-    }
+    fun provideHelloInteractor(helloInteractor: HelloInteractor): Interactor.HelloInteractor = helloInteractor
 }

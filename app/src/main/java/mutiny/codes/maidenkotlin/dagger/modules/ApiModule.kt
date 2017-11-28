@@ -33,15 +33,11 @@ class ApiModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): ApiService {
-        return retrofit.create<ApiService>(ApiService::class.java)
-    }
+    fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create<ApiService>(ApiService::class.java)
 
     @Provides
     @Singleton
-    internal fun provideOkHttpClient(context: Context): OkHttpClient {
-        return createOkHttpClient(context)
-    }
+    internal fun provideOkHttpClient(context: Context): OkHttpClient = createOkHttpClient(context)
 
     private fun createOkHttpClient(context: Context): OkHttpClient {
         val cacheDir = File(context.cacheDir, "http")
