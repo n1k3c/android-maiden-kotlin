@@ -72,7 +72,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         }
     }
 
-    protected fun hideKeyboard() {
+    private fun hideKeyboard() {
         val focusedView = currentFocus
         if (focusedView != null) {
             focusedView.clearFocus()

@@ -27,11 +27,6 @@ class MainActivity : BaseActivity(), Main.View {
                 .inject(this)
     }
 
-    override fun onStop() {
-        super.onStop()
-        presenter.unsubscribe()
-    }
-
     override fun sayHello(text: String) {
         tvHelloWorld.text = text
     }

@@ -1,5 +1,7 @@
 package mutiny.codes.maidenkotlin.mvp
 
+import mutiny.codes.maidenkotlin.base.BasePresenter
+
 /**
  * Created by nikola on 5/24/17.
  */
@@ -10,10 +12,8 @@ interface Main {
         fun sayHello(text: String)
     }
 
-    interface Presenter {
+    interface Presenter : BasePresenter<Main.View> {
 
         fun saySomething()
-
-        fun unsubscribe()
     }
 }
