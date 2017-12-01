@@ -53,4 +53,5 @@ ext {
     retrofitVersion = '2.0.1'
     rxAdapterVersion = '1.0.0'
     okhttpVersion = '3.0.1'
+    archVersion = '1.0.0'
 }
