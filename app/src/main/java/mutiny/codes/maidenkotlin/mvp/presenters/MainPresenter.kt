@@ -34,11 +34,13 @@ class MainPresenter @Inject constructor(val view: Main.View,
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     override fun onAttach() {
+        Log.d("Presenter", "onAttach")
         saySomething()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     override fun onDetach() {
+        Log.d("Presenter", "onDetach")
         compositeDisposable.clear()
     }
 

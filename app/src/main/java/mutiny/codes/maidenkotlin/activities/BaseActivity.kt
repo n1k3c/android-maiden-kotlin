@@ -1,6 +1,7 @@
 package mutiny.codes.maidenkotlin.activities
 
 import android.app.ProgressDialog
+import android.arch.lifecycle.LifecycleRegistry
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
@@ -32,6 +33,8 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
     private var progressDialog: ProgressDialog? = null
 
+    private val lifecycleRegistry = LifecycleRegistry(this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(contentViewResource)
@@ -49,6 +52,10 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     protected abstract val contentViewResource: Int
 
     protected abstract fun injectDependencies(appComponent: AppComponent)
+
+    override fun getLifecycle(): LifecycleRegistry {
+        return lifecycleRegistry
+    }
 
     override fun showProgress() {
         if (progressDialog == null) {
