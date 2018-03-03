@@ -1,8 +1,7 @@
 package mutiny.codes.maidenkotlin
 
 import android.app.Application
-import mutiny.codes.maidenkotlin.dagger.components.AppComponent
-import mutiny.codes.maidenkotlin.dagger.components.DaggerAppComponent
+import mutiny.codes.maidenkotlin.di.components.AppComponent
 
 /**
  * Created by nikola on 5/24/17.

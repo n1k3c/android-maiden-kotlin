@@ -1,4 +1,4 @@
-package mutiny.codes.maidenkotlin.dagger.modules
+package mutiny.codes.maidenkotlin.di.modules
 
 import dagger.Module
 import dagger.Provides

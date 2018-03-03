@@ -1,4 +1,4 @@
-package mutiny.codes.maidenkotlin.fragments
+package mutiny.codes.maidenkotlin.base
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -7,13 +7,10 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.pawegio.kandroid.d
 import mutiny.codes.maidenkotlin.R
 import mutiny.codes.maidenkotlin.TheApplication
-import mutiny.codes.maidenkotlin.activities.BaseActivity
-import mutiny.codes.maidenkotlin.dagger.components.AppComponent
+import mutiny.codes.maidenkotlin.di.components.AppComponent
 import mutiny.codes.maidenkotlin.interfaces.ActionBarResourceProvider
-import mutiny.codes.maidenkotlin.mvp.BaseView
 
 /**
  * Created by nikola on 5/24/17.

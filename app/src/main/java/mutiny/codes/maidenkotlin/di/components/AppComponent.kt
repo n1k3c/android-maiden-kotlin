@@ -1,10 +1,10 @@
-package mutiny.codes.maidenkotlin.dagger.components
+package mutiny.codes.maidenkotlin.di.components
 
 import dagger.Component
-import mutiny.codes.maidenkotlin.dagger.modules.ApiModule
-import mutiny.codes.maidenkotlin.dagger.modules.ApiService
-import mutiny.codes.maidenkotlin.dagger.modules.AppContextModule
-import mutiny.codes.maidenkotlin.dagger.modules.MainModule
+import mutiny.codes.maidenkotlin.di.modules.ApiModule
+import mutiny.codes.maidenkotlin.di.modules.ApiService
+import mutiny.codes.maidenkotlin.di.modules.AppContextModule
+import mutiny.codes.maidenkotlin.di.modules.MainModule
 import javax.inject.Singleton
 
 

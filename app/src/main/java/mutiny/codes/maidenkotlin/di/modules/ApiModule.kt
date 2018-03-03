@@ -1,4 +1,4 @@
-package mutiny.codes.maidenkotlin.dagger.modules
+package mutiny.codes.maidenkotlin.di.modules
 
 import android.content.Context
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

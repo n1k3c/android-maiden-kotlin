@@ -1,8 +1,8 @@
-package mutiny.codes.maidenkotlin.dagger.components
+package mutiny.codes.maidenkotlin.di.components
 
 import dagger.Subcomponent
-import mutiny.codes.maidenkotlin.activities.MainActivity
-import mutiny.codes.maidenkotlin.dagger.modules.MainModule
+import mutiny.codes.maidenkotlin.di.modules.MainModule
+import mutiny.codes.maidenkotlin.feature.main.MainActivity
 
 
 /**

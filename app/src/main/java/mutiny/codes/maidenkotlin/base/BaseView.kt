@@ -1,4 +1,4 @@
-package mutiny.codes.maidenkotlin.mvp
+package mutiny.codes.maidenkotlin.base
 
 import android.content.DialogInterface
 import android.support.annotation.StringRes

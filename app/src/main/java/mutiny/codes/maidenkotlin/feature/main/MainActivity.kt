@@ -1,12 +1,11 @@
-package mutiny.codes.maidenkotlin.activities
+package mutiny.codes.maidenkotlin.feature.main
 
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import mutiny.codes.maidenkotlin.R
-import mutiny.codes.maidenkotlin.dagger.components.AppComponent
-import mutiny.codes.maidenkotlin.dagger.modules.ApiService
-import mutiny.codes.maidenkotlin.dagger.modules.MainModule
-import mutiny.codes.maidenkotlin.mvp.Main
+import mutiny.codes.maidenkotlin.base.BaseActivity
+import mutiny.codes.maidenkotlin.di.components.AppComponent
+import mutiny.codes.maidenkotlin.di.modules.MainModule
 import javax.inject.Inject
 
 class MainActivity : BaseActivity(), Main.View {

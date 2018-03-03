@@ -1,4 +1,4 @@
-package mutiny.codes.maidenkotlin.mvp.interactors
+package mutiny.codes.maidenkotlin.base
 
 import io.reactivex.Completable
 

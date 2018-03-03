@@ -3,16 +3,11 @@ package mutiny.codes.maidenkotlin.mvp.presenters
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
 import io.reactivex.Completable
-import mutiny.codes.maidenkotlin.mvp.Main
-import mutiny.codes.maidenkotlin.mvp.interactors.Interactor
-import mutiny.codes.maidenkotlin.util.RxSchedulersOverrideRule
-import org.junit.Before
-import org.junit.Rule
+import mutiny.codes.maidenkotlin.feature.main.Main
+import mutiny.codes.maidenkotlin.base.Interactor
+import mutiny.codes.maidenkotlin.feature.main.MainPresenter
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.InjectMocks
 import org.mockito.Mock
-import org.mockito.junit.MockitoJUnitRunner
 
 /**
  * Created by nikola on 6/16/17.

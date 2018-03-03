@@ -1,6 +1,7 @@
-package mutiny.codes.maidenkotlin.mvp.interactors
+package mutiny.codes.maidenkotlin.feature.main.interactors
 
 import io.reactivex.Completable
+import mutiny.codes.maidenkotlin.base.Interactor
 import javax.inject.Inject
 
 

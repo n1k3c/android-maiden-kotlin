@@ -1,4 +1,4 @@
-package mutiny.codes.maidenkotlin.activities
+package mutiny.codes.maidenkotlin.base
 
 import android.app.ProgressDialog
 import android.arch.lifecycle.LifecycleRegistry
@@ -17,13 +17,9 @@ import android.support.v7.widget.Toolbar
 import android.view.Surface
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
-import com.pawegio.kandroid.find
-
 import mutiny.codes.maidenkotlin.R
 import mutiny.codes.maidenkotlin.TheApplication
-import mutiny.codes.maidenkotlin.dagger.components.AppComponent
-import mutiny.codes.maidenkotlin.fragments.BaseFragment
-import mutiny.codes.maidenkotlin.mvp.BaseView
+import mutiny.codes.maidenkotlin.di.components.AppComponent
 
 /**
  * Created by nikola on 5/24/17.

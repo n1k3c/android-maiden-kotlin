@@ -1,4 +1,4 @@
-package mutiny.codes.maidenkotlin.mvp
+package mutiny.codes.maidenkotlin.feature.main
 
 import mutiny.codes.maidenkotlin.base.BasePresenter
 
@@ -12,7 +12,7 @@ interface Main {
         fun sayHello(text: String)
     }
 
-    interface Presenter : BasePresenter<Main.View> {
+    interface Presenter : BasePresenter<View> {
 
         fun saySomething()
     }

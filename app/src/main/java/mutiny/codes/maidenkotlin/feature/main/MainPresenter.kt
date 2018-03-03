@@ -1,4 +1,4 @@
-package mutiny.codes.maidenkotlin.mvp.presenters
+package mutiny.codes.maidenkotlin.feature.main
 
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
@@ -9,9 +9,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableCompletableObserver
 import io.reactivex.schedulers.Schedulers
-import mutiny.codes.maidenkotlin.base.BasePresenter
-import mutiny.codes.maidenkotlin.mvp.Main
-import mutiny.codes.maidenkotlin.mvp.interactors.Interactor
+import mutiny.codes.maidenkotlin.base.Interactor
 import javax.inject.Inject
 
 
