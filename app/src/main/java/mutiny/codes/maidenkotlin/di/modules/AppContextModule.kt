@@ -1,5 +1,6 @@
 package mutiny.codes.maidenkotlin.di.modules
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import mutiny.codes.maidenkotlin.TheApplication
@@ -12,7 +13,7 @@ import mutiny.codes.maidenkotlin.TheApplication
 class AppContextModule {
 
     @Provides
-    fun provideAppContext(): TheApplication? = TheApplication.instance
+    fun provideAppContext(): Context = TheApplication.instance
 
 }
 

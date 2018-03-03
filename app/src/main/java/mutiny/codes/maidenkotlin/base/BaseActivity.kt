@@ -1,13 +1,11 @@
 package mutiny.codes.maidenkotlin.base
 
-import android.app.ProgressDialog
 import android.arch.lifecycle.LifecycleRegistry
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.IdRes
-import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import android.support.v4.app.NavUtils
 import android.support.v7.app.ActionBar
@@ -17,6 +15,9 @@ import android.support.v7.widget.Toolbar
 import android.view.Surface
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import dmax.dialog.SpotsDialog
+import es.dmoral.toasty.Toasty
 import mutiny.codes.maidenkotlin.R
 import mutiny.codes.maidenkotlin.TheApplication
 import mutiny.codes.maidenkotlin.di.components.AppComponent
@@ -25,24 +26,31 @@ import mutiny.codes.maidenkotlin.di.components.AppComponent
  * Created by nikola on 5/24/17.
  */
 
+const val NO_ITEMS = 0
+
 abstract class BaseActivity : AppCompatActivity(), BaseView {
 
-    private var progressDialog: ProgressDialog? = null
+    private lateinit var lifecycleRegistry: LifecycleRegistry
 
-    private val lifecycleRegistry = LifecycleRegistry(this)
+    private lateinit var progressDialog: SpotsDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(contentViewResource)
 
-        val toolbar = find<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         if (toolbar != null) {
             setSupportActionBar(toolbar)
             supportActionBar?.setDisplayShowTitleEnabled(true)
         }
 
+        progressDialog = SpotsDialog(this)
+
+        lifecycleRegistry = LifecycleRegistry(this)
+
         injectDependencies(appComponent = TheApplication.appComponent)
+
     }
 
     protected abstract val contentViewResource: Int
@@ -54,25 +62,11 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     }
 
     override fun showProgress() {
-        if (progressDialog == null) {
-            progressDialog = ProgressDialog.show(this, getString(R.string.app_name), null, true, false)
-        } else if (!progressDialog!!.isShowing) {
-            (progressDialog as ProgressDialog).show()
-        }
-    }
-
-    override fun showProgress(@StringRes description: Int) {
-        if (progressDialog == null) {
-            progressDialog = ProgressDialog.show(this, getString(R.string.app_name), getString(description), true, false)
-        } else if (!(progressDialog as ProgressDialog).isShowing) {
-            (progressDialog as ProgressDialog).show()
-        }
+        progressDialog.show()
     }
 
     override fun hideProgress() {
-        if (progressDialog != null) {
-            (progressDialog as ProgressDialog).dismiss()
-        }
+        progressDialog.dismiss()
     }
 
     private fun hideKeyboard() {
@@ -136,7 +130,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
     fun clearFragments() {
         val fm = supportFragmentManager
-        for (i in 0..fm.backStackEntryCount - 1) {
+        for (i in 0 until fm.backStackEntryCount) {
             fm.popBackStack()
         }
     }
@@ -149,9 +143,8 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
             }
             val entry = fragmentManager.getBackStackEntryAt(fragmentManager.backStackEntryCount - 1) ?: return null
             val fragmentTag = entry.name
-            val currentFragment = supportFragmentManager
+            return supportFragmentManager
                     .findFragmentByTag(fragmentTag)
-            return currentFragment
         }
 
     fun removeFrontFragment(): Boolean {
@@ -164,10 +157,10 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
             return orientation == Surface.ROTATION_0 || orientation == Surface.ROTATION_180
         }
 
-    private fun setActionBarTitle(@StringRes stringRes: Int) {
+    public fun setActionBarTitle(title: String) {
         if (supportActionBar != null) {
             (supportActionBar as ActionBar).setDisplayShowTitleEnabled(true)
-            supportActionBar?.setTitle(stringRes)
+            supportActionBar?.title = title
         }
     }
 
@@ -190,8 +183,15 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         }
     }
 
-    companion object {
+    override fun showSuccessToast(context: Context, message: String) {
+        Toasty.success(context, message, Toast.LENGTH_SHORT, true).show();
+    }
 
-        val NO_ITEMS = 0
+    override fun showErrorToast(context: Context, message: String) {
+        Toasty.error(context, message, Toast.LENGTH_SHORT, true).show();
+    }
+
+    override fun showInfoToast(context: Context, message: String) {
+        Toasty.info(context, message, Toast.LENGTH_SHORT, true).show();
     }
 }
