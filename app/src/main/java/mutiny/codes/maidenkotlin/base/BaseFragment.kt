@@ -1,5 +1,6 @@
-package mutiny.codes.maidenkotlin.fragments
+package mutiny.codes.maidenkotlin.base
 
+import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.support.annotation.StringRes
@@ -7,13 +8,11 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.pawegio.kandroid.d
+import com.github.ajalt.timberkt.d
 import mutiny.codes.maidenkotlin.R
 import mutiny.codes.maidenkotlin.TheApplication
-import mutiny.codes.maidenkotlin.activities.BaseActivity
-import mutiny.codes.maidenkotlin.dagger.components.AppComponent
+import mutiny.codes.maidenkotlin.di.components.AppComponent
 import mutiny.codes.maidenkotlin.interfaces.ActionBarResourceProvider
-import mutiny.codes.maidenkotlin.mvp.BaseView
 
 /**
  * Created by nikola on 5/24/17.
@@ -35,7 +34,7 @@ abstract class BaseFragment : Fragment(), BaseView {
 
     protected abstract fun injectDependencies(appComponent: AppComponent)
 
-    protected abstract val contentViewResource: Int
+    protected open val contentViewResource: Int = 0
 
     protected fun setActionBarTitle(title: String) {
         if (activity != null && activity is ActionBarResourceProvider) {
@@ -53,15 +52,7 @@ abstract class BaseFragment : Fragment(), BaseView {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showProgress()
         } else {
-            d(getString(R.string.extends_base_activity))
-        }
-    }
-
-    override fun showProgress(@StringRes description: Int) {
-        if (activity is BaseActivity) {
-            (activity as BaseActivity).showProgress(description)
-        } else {
-            d(getString(R.string.extends_base_activity))
+            d { getString(R.string.extends_base_activity) }
         }
     }
 
@@ -69,7 +60,7 @@ abstract class BaseFragment : Fragment(), BaseView {
         if (activity is BaseActivity) {
             (activity as BaseActivity).hideProgress()
         } else {
-            d(getString(R.string.extends_base_activity))
+            d { getString(R.string.extends_base_activity) }
         }
     }
 
@@ -77,7 +68,7 @@ abstract class BaseFragment : Fragment(), BaseView {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showMessage(description)
         } else {
-            d(getString(R.string.extends_base_activity))
+            d { getString(R.string.extends_base_activity) }
         }
     }
 
@@ -85,7 +76,7 @@ abstract class BaseFragment : Fragment(), BaseView {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showMessage(message, description)
         } else {
-            d(getString(R.string.extends_base_activity))
+            d { getString(R.string.extends_base_activity) }
         }
     }
 
@@ -93,7 +84,7 @@ abstract class BaseFragment : Fragment(), BaseView {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showMessage(message, description, cancelable)
         } else {
-            d(getString(R.string.extends_base_activity))
+            d { getString(R.string.extends_base_activity) }
         }
     }
 
@@ -101,7 +92,7 @@ abstract class BaseFragment : Fragment(), BaseView {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showMessage(message, description, listener, cancelable)
         } else {
-            d(getString(R.string.extends_base_activity))
+            d { getString(R.string.extends_base_activity) }
         }
     }
 
@@ -109,7 +100,31 @@ abstract class BaseFragment : Fragment(), BaseView {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showError(description)
         } else {
-            d(getString(R.string.extends_base_activity))
+            d { getString(R.string.extends_base_activity) }
+        }
+    }
+
+    override fun showSuccessToast(context: Context, message: String) {
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showSuccessToast(context, message)
+        } else {
+            d { getString(R.string.extends_base_activity) }
+        }
+    }
+
+    override fun showErrorToast(context: Context, message: String) {
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showErrorToast(context, message)
+        } else {
+            d { getString(R.string.extends_base_activity) }
+        }
+    }
+
+    override fun showInfoToast(context: Context, message: String) {
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showInfoToast(context, message)
+        } else {
+            d { getString(R.string.extends_base_activity) }
         }
     }
 }

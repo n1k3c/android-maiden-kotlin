@@ -1,12 +1,9 @@
-package mutiny.codes.maidenkotlin.dagger.modules
-
-import io.reactivex.Observable
-import retrofit2.http.GET
-import retrofit2.http.Query
+package mutiny.codes.maidenkotlin.network
 
 /**
- * Created by usik.a on 07.12.2016.
+ * Created by nikola on 5/24/17.
  */
+
 interface ApiService {
 
 

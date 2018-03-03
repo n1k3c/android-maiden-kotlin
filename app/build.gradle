@@ -52,32 +52,45 @@ android {
     }
     kapt {
         generateStubs = true
+        useBuildCache = true
     }
-    buildToolsVersion '26.0.2'
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile "junit:junit:$rootProject.junitVersion"
-    testCompile "com.nhaarman:mockito-kotlin:$rootProject.mockitoVersion"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    compile "com.android.support:design:$rootProject.supportLibraryVersion"
-    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
-    compile "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    testImplementation "com.nhaarman:mockito-kotlin:$rootProject.mockitoVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
     kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
-    compile "com.google.dagger:dagger:$rootProject.daggerVersion"
-    provided 'org.glassfish:javax.annotation:10.0-b28'
-    compile "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlinVersion"
-    compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroidVersion"
-    compile "com.pawegio.kandroid:kandroid:$rootProject.kandroidVersion@aar"
-    compile "com.chibatching.kotpref:kotpref:$rootProject.kotprefVersion"
-    compile "com.chibatching.kotpref:enum-support:$rootProject.kotprefVersion"
-    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
-    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofitVersion"
-    compile "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.rxAdapterVersion"
-    compile "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
-    compile "com.squareup.okhttp3:okhttp-urlconnection:$rootProject.okhttpVersion"
-    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
-    compile "com.squareup.okhttp3:okhttp-ws:$rootProject.okhttpVersion"
+    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlinVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroidVersion"
+    implementation "com.chibatching.kotpref:kotpref:$rootProject.kotprefVersion"
+    implementation "com.chibatching.kotpref:enum-support:$rootProject.kotprefVersion"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofitVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.rxAdapterVersion"
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:$rootProject.okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+    implementation "com.squareup.okhttp3:okhttp-ws:$rootProject.okhttpVersion"
+    implementation "android.arch.lifecycle:runtime:$rootProject.archVersion"
+    implementation "android.arch.lifecycle:extensions:$rootProject.archVersion"
+    kapt "android.arch.lifecycle:compiler:$rootProject.archVersion"
+    implementation "com.facebook.stetho:stetho:$rootProject.stetho"
+    implementation "com.facebook.stetho:stetho-okhttp3:$rootProject.stetho"
+    implementation "com.github.ajalt:timberkt:$rootProject.timberKt"
+    implementation "com.github.GrenderG:Toasty:$rootProject.toasty"
+    implementation "com.github.d-max:spots-dialog:$rootProject.progressDialog@aar"
+
 }

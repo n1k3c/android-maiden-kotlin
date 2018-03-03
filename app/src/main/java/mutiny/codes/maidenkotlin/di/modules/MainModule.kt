@@ -1,12 +1,12 @@
-package mutiny.codes.maidenkotlin.dagger.modules
+package mutiny.codes.maidenkotlin.di.modules
 
 
 import dagger.Module
 import dagger.Provides
-import mutiny.codes.maidenkotlin.mvp.Main
-import mutiny.codes.maidenkotlin.mvp.interactors.HelloInteractor
-import mutiny.codes.maidenkotlin.mvp.interactors.Interactor
-import mutiny.codes.maidenkotlin.mvp.presenters.MainPresenter
+import mutiny.codes.maidenkotlin.base.Interactor
+import mutiny.codes.maidenkotlin.feature.main.Main
+import mutiny.codes.maidenkotlin.feature.main.MainPresenter
+import mutiny.codes.maidenkotlin.feature.main.interactors.HelloInteractor
 
 /**
  * Created by nikola on 5/24/1.
